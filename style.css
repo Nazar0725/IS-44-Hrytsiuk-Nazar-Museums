@@ -1,0 +1,151 @@
+/* ================= BODY ================= */
+
+/* Через тег */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+    background-color: #f0f8ff; 
+}
+
+/* Через клас */
+.main-body {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    color: #222;
+    line-height: 1.5;
+    text-align: left;
+    background-color: #fafafa;
+}
+
+/* Через унікальний ідентифікатор */
+#page1 {
+    font-family: 'Times New Roman', serif;
+    font-size: 16px;
+    color: #111;
+    line-height: 1.7;
+    text-align: justify;
+    background-color: #e6f7ff;
+}  
+
+/*  Заголовки H1-H6  */
+
+/* Через тег */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+    color: #2a2a72;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Через клас */
+.main-title {
+    font-family: Verdana, sans-serif;
+    font-size: 28px;
+    color: #ff4500;
+    line-height: 1.2;
+    text-align: left;
+    font-style: normal;
+}
+
+/* Через унікальний ідентифікатор */
+#museum-name {
+    font-family: Tahoma, sans-serif;
+    font-size: 20px;
+    color: #008080;
+    line-height: 1.4;
+    text-align: right;
+    font-style: italic;
+}
+
+/* ================= Посилання ================= */
+
+/* Через тег */
+a {
+    color: #ff4500;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Hover для тегу */
+a:hover {
+    color: #008000;
+    text-decoration: underline;
+}
+
+/* Через клас */
+.menu-link {
+    color: #0000ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Через унікальний ідентифікатор  */
+#special-link {
+    color: #ff1493 !important;
+    font-style: italic !important;
+    font-size: 18px !important;
+    text-decoration: none !important;
+}
+
+
+
+/* Списки  */
+
+/* Маркований список */
+ul {
+    list-style-type: square !important;
+    padding-left: 40px;               
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Нумерований список */
+ol {
+    list-style-type: decimal !important; 
+    padding-left: 40px;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Списки визначень */
+dl {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-left: 3px solid #2a2a72;
+}
+
+dt {
+    font-weight: bold;
+    color: #2a2a72;
+}
+
+dd {
+    margin-left: 20px;
+    font-style: italic;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+th, td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #2a2a72 !important; 
+    color: #fff !important;             
+}
+
