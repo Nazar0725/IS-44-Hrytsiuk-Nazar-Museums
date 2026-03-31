@@ -178,3 +178,70 @@ h3 + a {
     display: inline-block;
     margin-top: 10px;
 }
+
+/* лаба 5 */
+
+/* --- Позиціонування та блочні елементи --- */
+
+#header-container {
+    position: sticky; 
+    top: 0;
+    background-color: lightyellow;
+    z-index: 100;
+    padding: 10px 0;
+}
+
+/* Рядковий елемент span */
+.term-highlight {
+    background-color: #ffeb3b;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-style: italic;
+}
+
+/* Плаваючий блок (float) */
+.floating-sidebar {
+    float: right;
+    width: 150px;
+    margin: 200px;
+    padding: 15px;
+    border: 2px solid #2a2a72;
+    background-color: #fff;
+    font-size: 0.9em;
+}
+
+/* Фіксоване позиціонування для кнопки "Вгору" або інфо-блоку */
+.footer-info {
+    position: relative;
+    margin-top: 50px;
+    clear: both; 
+}
+
+
+
+a:link { color: blue; }      
+a:visited { color: purple; }   
+a:hover { color: red; text-decoration: underline; } 
+a:active { color: green; }      
+
+
+
+/* Робимо перший елемент у списках жирним */
+ul li:first-child, ol li:first-child {
+    font-weight: bold;
+    color: #2a2a72;
+}
+
+
+
+/* Додаємо декоративну лінію перед заголовком */
+h1:before {
+    content: "🏛️ ";
+}
+
+
+#links-container a:after {
+    content: " (відкрити)";
+    font-size: 0.7em;
+    color: gray;
+}
