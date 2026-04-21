@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Галерея Уффіці — Серце Ренесансу</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            background: #f4d03f; /* Яскравий жовто-золотий фон */
+            background-image: linear-gradient(to right, #f4d03f, #16a085); /* Градієнт для сучасності */
+            padding: 20px;
+        }
+        .main-card {
+            max-width: 850px;
+            margin: auto;
+            background: #fffaf0;
+            padding: 35px;
+            border-radius: 0 50px 0 50px;
+            border: 5px double #e67e22;
+        }
+        h1 { color: #a04000; text-align: center; }
+        .gallery-grid { text-align: center; margin: 20px 0; }
+        .gallery-grid img { border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        .info-list { background: #ffe5d9; padding: 20px; border-radius: 15px; }
+    </style>
+</head>
+<body link="#a04000" vlink="#5d4037" alink="#ff0000">
+    <script src="script.js"></script>
+<div class="main-card">
+    <h1 id="start">Галерея Уффіці (Флоренція)</h1>
+    
+    <p>Галерея Уффіці — це один з найстаріших та найвідоміших мистецьких музеїв світу. Вона розташована в палаці, побудованому за замовленням родини <b>Медічі</b>.</p>
+    
+    <p>Тут зберігаються безцінні шедеври <i>Боттічеллі, Леонардо да Вінчі, Мікеланджело та Рафаеля</i>.</p>
+    
+    <h3>Венера </h3>
+    <div class="gallery-grid">
+        <a href="E:\2sem\okr\img\zamovyty_reprodukciyu_kartyny_sandro_botichelli_narodzhennya_venery.jpg" target="_blank">
+            <img src="E:\2sem\okr\img\zamovyty_reprodukciyu_kartyny_sandro_botichelli_narodzhennya_venery.jpg" alt="Венера">
+            <br><i>(Натисніть, щоб відкрити оригінал)</i>
+        </a>
+    </div>
+    // 7
+    <div class="uffizi-interactive" style="margin-top: 30px; border-top: 2px solid #e67e22; padding-top: 20px;">
+    
+        <h3>Видатні майстри Уффіці (клікніть для вибору)</h3>
+        <ul id="artist-list" style="list-style: none; padding: 0; cursor: pointer;">
+            <li style="padding: 10px; border-bottom: 1px dotted #ccc;">Леонардо да Вінчі</li>
+            <li style="padding: 10px; border-bottom: 1px dotted #ccc;">Мікеланджело Буонарроті</li>
+            <li style="padding: 10px; border-bottom: 1px dotted #ccc;">Сандро Боттічеллі</li>
+            <li style="padding: 10px; border-bottom: 1px dotted #ccc;">Рафаель Санті</li>
+        </ul>
+    
+        <div id="uffizi-services" style="margin: 20px 0; text-align: center;">
+            <h4>Сервіси для відвідувачів</h4>
+            <button data-action="buyTicket" style="padding: 8px 15px; cursor: pointer;">Купити квиток</button>
+            <button data-action="virtualTour" style="padding: 8px 15px; cursor: pointer;">Віртуальний тур</button>
+            <button data-action="toggleMap" style="padding: 8px 15px; cursor: pointer;">Карта залів</button>
+        </div>
+    
+        <div style="text-align: center; background: #fff5e6; padding: 15px; border-radius: 10px;">
+            <p>Скільки людей зараз переглядають цей шедевр:</p>
+            <button data-counter style="font-size: 1.2em; padding: 10px 25px; background: #e67e22; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                👁️ Вже дивляться: <span>124</span>
+            </button>
+        </div>
+    
+        <div id="museum-map" hidden style="margin-top: 15px; padding: 15px; background: #e8f6f3; border: 1px solid #16a085;">
+            🗺️ <b>План галереї:</b> Зал 1-15 (Раннє Відродження), Зал 16-45 (Високе Відродження).
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <div class="info-list">
+        <h3>Чому варто відвідати?</h3>
+        <ul type="circle">
+            <li>Найбільша колекція живопису Ренесансу</li>
+            <li>Унікальна архітектура коридору Вазарі</li>
+        </ul>
+        
+        <ol type="a">
+            <li>Купуйте квитки за 2 місяці</li>
+            <li>Виділіть мінімум 4 години на огляд</li>
+        </ol>   
+    </div>
+
+    <p style="margin-top: 50px;">
+        <a href="index.html">Повернутися на Головну</a> | 
+    </p>
+</div>
+
+</body>
+</html>

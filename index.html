@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Грицюк Назар">
+    <title>Світова культурна спадщина: Музеї</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        a {
+            color: #2e8b57 ;
+            font-weight: bold;
+            text-transform: none;
+        }
+        
+       
+        #main-container {
+            border: 5px double #3498db;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 1050px;
+            background-color: #ffffff;
+        }
+
+        .museum-main-title {
+            font-size: 36px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body class="main-body">
+
+<div id="main-container">
+    <h1 id="top" class="museum-main-title">Галерея світових шедеврів</h1>
+    
+    <p style="font-size: 19px; color: #1a5276; font-style: italic; background-color: #e8f6f3; padding: 15px; border-left: 8px solid #16a085;">
+        <b>Музеї</b> — це не просто будівлі, а портали в часі, що дозволяють нам торкнутися історії людства. Вони зберігають культурний код цивілізацій.
+    </p>
+    
+    <div class="nav-menu">
+        <h3>Навігація:</h3>
+        <a href="louvre.html" class="menu-link">Лувр (Франція)</a> | 
+        <a href="british_museum.html" class="menu-link">Британський музей (UK)</a> | 
+        <a href="uffizi.html" target="_blank" class="menu-link">Уффіці (Італія)</a> | 
+        <a href="louvre.html#tickets" class="menu-link">Квитки в Лувр</a> | 
+        <a href="#complex-section" class="menu-link">Адміністративний поділ</a> |
+        <a href="https://artsandculture.google.com/" target="_blank" id="special-link">Google Arts & Culture</a>
+    </div>
+
+    <h3>Популярні експозиції</h3>
+    <table>
+        <caption>Огляд головних залів</caption>
+        <tr class="table-header">
+            <th>Мистецтво</th>
+            <th>Історія</th>
+            <th>Античність</th>
+        </tr>
+        <tr>
+            <td><img src="E:\2sem\okr\img\0402ptu5-6696-1200x630.jpg" alt="Art" width="500" height="300"></td>
+            <td><img src="E:\2sem\okr\img\brit.jpg" alt="History" width="260" height="150"></td>
+            <td><img src="E:\2sem\okr\img\drevniy-rim-doklad.jpg" alt="Ancient" width="150" height="75"></td>
+        </tr>
+        <tr>
+            <td><a href="louvre.html">Детальніше</a></td>
+            <td><a href="british_museum.html">Детальніше</a></td>
+            <td><a href="uffizi.html">Детальніше</a></td>
+        </tr>
+        <tr>
+            <td>Живопис Ренесансу</td>
+            <td>Артефакти Єгипту</td>
+            <td>Скульптури Риму</td>
+        </tr>
+        <tr>
+            <td>Зал 1-5</td>
+            <td>Крило Схід</td>
+            <td>Центральний хол</td>
+        </tr>
+    </table>
+
+    <h3>Типи екскурсій</h3>
+    <div class="styled-list">
+        <ul type="square">
+            <li>Індивідуальні гіди</li>
+            <li>Аудіогіди (12 мов)</li>
+        </ul>
+        
+        <ol type="I">
+            <li>Бронювання часу</li>
+            <li>Проходження контролю</li>
+            <li>Огляд експозиції</li>
+        </ol>
+
+        <dl>
+            <dt>Експонат</dt>
+            <dd>Предмет, виставлений для огляду в музеї.</dd>
+            <dt>Куратор</dt>
+            <dd>Відповідальна особа за збереження колекції.</dd>
+        </dl>
+    </div>
+
+    <h3 id="complex-section">Адміністративний поділ</h3>
+    <table class="complex-table" cellspacing="5" cellpadding="10">
+        <thead>
+            <tr>
+                <th rowspan="2">Департамент</th>
+                <th colspan="2">Персонал та фінанси</th>
+            </tr>
+            <tr>
+                <th>Співробітники</th>
+                <th>Бюджет</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Реставрація</td>
+                <td>45 осіб</td>
+                <td>$2.5M</td>
+            </tr>
+            <tr>
+                <td>Охорона</td>
+                <td>120 осіб</td>
+                <td>$1.8M</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p align="center">
+        <a href="#top">Повернутися вгору сторінки</a>
+    </p>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <button onclick="redirectToOfficialSite()" style="padding: 10px 20px; cursor: pointer;">
+        Відвідати офіційний путівник
+    </button>
+
+    <div id="event-tasks-section" style="margin-top: 40px; padding: 20px; border: 2px dashed #2a2a72; background: #f9f9f9;">
+        <h3>Інтерактивна взаємодія</h3>
+        
+        <button id="property-btn" onclick="mouseAttributeHandler()" style="padding: 10px; margin: 5px;">
+            Дізнатися про нічну екскурсію 
+        </button>
+    
+        <button id="multi-handler-btn" style="padding: 10px; margin: 5px;">
+            Підписатися на оновлення галерей
+        </button>
+    
+        <div id="museum-guide-box" style="padding: 15px; background: #e8f6f3; border: 1px solid #16a085; cursor: pointer; margin-top: 10px;">
+            🏛️ Натисніть тут, щоб активувати віртуального гіда 
+        </div>
+        <button id="stop-guide-btn" style="margin-top: 10px; color: red;">Вимкнути гіда</button>
+    </div>
+
+</div>
+
+<script>
+    // 1. Функція виводу інформації про розробника
+    function showDeveloperInfo(lastName, firstName, position = "Студент") {
+        let info = "Розробник сторінки:\n" + 
+                   "Прізвище: " + lastName + "\n" + 
+                   "Ім'я: " + firstName + "\n" + 
+                   "Посада: " + position;
+        alert(info);
+    }
+
+    // 2. Використання confirm
+    let isAdmin = confirm("Вітаємо у Галереї світових шедеврів! Бажаєте дізнатися інформацію про автора проєкту?");
+
+    if (isAdmin) {
+        // 3. Використання prompt
+        let visitorName = prompt("Як вас звати, шановний відвідувачу?", "Гість");
+        
+        if (visitorName) {
+            alert("Приємно познайомитися, " + visitorName + "!");
+        }
+
+        // 4. Виклик власної функції
+        showDeveloperInfo("Грицюк", "Назар");
+    } else {
+        alert("Приємного перегляду експозицій!");
+    }
+
+
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>
