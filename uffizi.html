@@ -3,19 +3,64 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <title>Уффіці</title>
+    <title>Галерея Уффіці — Серце Ренесансу</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            background: #f4d03f; /* Яскравий жовто-золотий фон */
+            background-image: linear-gradient(to right, #f4d03f, #16a085); /* Градієнт для сучасності */
+            padding: 20px;
+        }
+        .main-card {
+            max-width: 850px;
+            margin: auto;
+            background: #fffaf0;
+            padding: 35px;
+            border-radius: 0 50px 0 50px;
+            border: 5px double #e67e22;
+        }
+        h1 { color: #a04000; text-align: center; }
+        .gallery-grid { text-align: center; margin: 20px 0; }
+        .gallery-grid img { border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        .info-list { background: #ffe5d9; padding: 20px; border-radius: 15px; }
+    </style>
 </head>
-<body bgcolor="lightpink">
+<body link="#a04000" vlink="#5d4037" alink="#ff0000">
 
-<h1>Галерея Уффіці</h1>
+<div class="main-card">
+    <h1 id="start">Галерея Уффіці (Флоренція)</h1>
+    
+    <p>Галерея Уффіці — це один з найстаріших та найвідоміших мистецьких музеїв світу. Вона розташована в палаці, побудованому за замовленням родини <b>Медічі</b>.</p>
+    
+    <p>Тут зберігаються безцінні шедеври <i>Боттічеллі, Леонардо да Вінчі, Мікеланджело та Рафаеля</i>.</p>
+    
+    <h3>Венера </h3>
+    <div class="gallery-grid">
+        <a href="E:\2sem\okr\img\zamovyty_reprodukciyu_kartyny_sandro_botichelli_narodzhennya_venery.jpg" target="_blank">
+            <img src="E:\2sem\okr\img\zamovyty_reprodukciyu_kartyny_sandro_botichelli_narodzhennya_venery.jpg" alt="Венера">
+            <br><i>(Натисніть, щоб відкрити оригінал)</i>
+        </a>
+    </div>
 
-<p><b>Один із найвідоміших музеїв Італії.</b></p>
-<p><i>Знаходиться у Флоренції.</i></p>
-<p style="font-weight: bold !important; color: darkblue !important;">
-    Абзац із внутрішнім стилем.
-</p>
+    <div class="info-list">
+        <h3>Чому варто відвідати?</h3>
+        <ul type="circle">
+            <li>Найбільша колекція живопису Ренесансу</li>
+            <li>Унікальна архітектура коридору Вазарі</li>
+        </ul>
+        
+        <ol type="a">
+            <li>Купуйте квитки за 2 місяці</li>
+            <li>Виділіть мінімум 4 години на огляд</li>
+        </ol>   
+    </div>
 
-<a href="index.html">Назад</a>
+    <p style="margin-top: 50px;">
+        <a href="index.html">Повернутися на Головну</a> | 
+    </p>
+</div>
 
 </body>
 </html>
