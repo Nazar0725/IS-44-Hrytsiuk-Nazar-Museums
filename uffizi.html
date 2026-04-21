@@ -8,8 +8,8 @@
         body {
             font-family: 'Georgia', serif;
             margin: 0;
-            background: #f4d03f; /* Яскравий жовто-золотий фон */
-            background-image: linear-gradient(to right, #f4d03f, #16a085); /* Градієнт для сучасності */
+            background: #f4d03f; 
+            background-image: linear-gradient(to right, #f4d03f, #16a085); 
             padding: 20px;
         }
         .main-card {
@@ -43,7 +43,7 @@
             <br><i>(Натисніть, щоб відкрити оригінал)</i>
         </a>
     </div>
-    // 7
+  
     <div class="uffizi-interactive" style="margin-top: 30px; border-top: 2px solid #e67e22; padding-top: 20px;">
     
         <h3>Видатні майстри Уффіці (клікніть для вибору)</h3>
@@ -73,6 +73,23 @@
         </div>
     </div>
     
+    <div id="mouse-practice-section" style="margin-top: 40px; padding: 20px; background: #fdf2e9; border-radius: 20px; border: 2px solid #a04000;">
+        <h3 class="hover-effect">Експонати для реставрації (Наведіть мишу)</h3>
+        <p>Використайте мишу, щоб перемістити статую до залу реставрації.</p>
+        
+        <div class="drag-zone">
+            <div class="drop-target" id="zone-start">
+                <img src="E:\2sem\okr\img\drevniy-rim-doklad.jpg" id="draggable-exhibit" alt="Статуя">
+            </div>
+            
+            <div style="font-size: 40px; align-self: center;">➡️</div>
+            
+            <div class="drop-target" id="zone-end">
+                <span style="color: #999;">Зал реставрації</span>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 
     <div class="info-list">

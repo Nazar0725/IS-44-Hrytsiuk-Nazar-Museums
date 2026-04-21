@@ -317,9 +317,9 @@ if (stopBtn && guideBox) {
     };
 }
 
-// ==========================================
+
 // ЛОГІКА ДЛЯ ГАЛЕРЕЇ УФФІЦІ
-// ==========================================
+
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3. Прийом "Поведінка": Глобальний обробник для data-counter
     document.addEventListener('click', function(event) {
-        let target = event.target.closest('[data-counter]'); // Шукаємо кнопку або її дітей
+        let target = event.target.closest('[data-counter]'); 
         if (target) {
             let span = target.querySelector('span');
             if (span) {
@@ -373,4 +373,94 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+});
+
+// ==========================================
+// ЗАВДАННЯ: ПОДІЇ МИШІ ТА DRAG-AND-DROP
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Перевіряємо, чи ми на сторінці Уффіці
+    if (!window.location.pathname.includes('uffizi.html')) return;
+
+    // ЧАСТИНА 1: mouseover/mouseout з target та relatedTarget
+    const practiceSection = document.getElementById('mouse-practice-section');
+    
+    if (practiceSection) {
+        practiceSection.onmouseover = function(event) {
+            let target = event.target;
+            // Змінюємо стиль елемента, на який навели (якщо це заголовок або текст)
+            if (target.tagName === 'H3' || target.tagName === 'P') {
+                target.style.color = "#16a085";
+                target.style.transform = "scale(1.02)";
+
+            }
+        };
+
+        practiceSection.onmouseout = function(event) {
+            let target = event.target;
+            if (target.tagName === 'H3' || target.tagName === 'P') {
+                target.style.color = ""; // Повертаємо до початкового (з CSS)
+                target.style.transform = "";
+            }
+        };
+    }
+
+    //  ЧАСТИНА 2: Drag-and-Drop (mousedown, mousemove, mouseup) 
+    const ball = document.getElementById('draggable-exhibit');
+    if (!ball) return;
+
+    ball.onmousedown = function(event) {
+        // Запобігаємо стандартному браузерному Drag&Drop
+        event.preventDefault();
+
+        // Вираховуємо зсув курсора відносно лівого верхнього кута елемента
+        let shiftX = event.clientX - ball.getBoundingClientRect().left;
+        let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+        ball.style.position = 'fixed';
+        ball.style.zIndex = 1000;
+        document.body.append(ball);
+
+        moveAt(event.clientX, event.clientY);
+
+        function moveAt(pageX, pageY) {
+            ball.style.left = pageX - shiftX + 'px';
+            ball.style.top = pageY - shiftY + 'px';
+        }
+
+        function onMouseMove(event) {
+            moveAt(event.clientX, event.clientY);
+        }
+
+        // Слухаємо переміщення миші по всьому документу
+        document.addEventListener('mousemove', onMouseMove);
+
+        // Відпускаємо елемент
+        ball.onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            ball.onmouseup = null;
+            
+            // Логіка перевірки: чи потрапили в цільову зону
+            const endZone = document.getElementById('zone-end');
+            const rect = endZone.getBoundingClientRect();
+            
+            if (event.clientX > rect.left && event.clientX < rect.right &&
+                event.clientY > rect.top && event.clientY < rect.bottom) {
+                
+                endZone.innerHTML = ""; // Очищаємо текст
+                endZone.append(ball);
+                ball.style.position = 'static';
+                alert("Експонат доставлено до реставрації!");
+            } else {
+                // Повертаємо на місце, якщо не влучили
+                document.getElementById('zone-start').append(ball);
+                ball.style.position = 'static';
+            }
+        };
+    };
+
+    ball.ondragstart = function() {
+        return false;
+    };
 });
