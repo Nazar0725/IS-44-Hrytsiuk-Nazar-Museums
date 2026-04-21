@@ -383,84 +383,58 @@ document.addEventListener('DOMContentLoaded', function() {
     // Перевіряємо, чи ми на сторінці Уффіці
     if (!window.location.pathname.includes('uffizi.html')) return;
 
-    // ЧАСТИНА 1: mouseover/mouseout з target та relatedTarget
-    const practiceSection = document.getElementById('mouse-practice-section');
-    
-    if (practiceSection) {
-        practiceSection.onmouseover = function(event) {
-            let target = event.target;
-            // Змінюємо стиль елемента, на який навели (якщо це заголовок або текст)
-            if (target.tagName === 'H3' || target.tagName === 'P') {
-                target.style.color = "#16a085";
-                target.style.transform = "scale(1.02)";
+    const dragItem = document.getElementById('draggable-exhibit');
+    const zoneStart = document.getElementById('zone-start');
+    const zoneEnd = document.getElementById('zone-end');
 
-            }
-        };
+    // Функція для налаштування логіки зони (щоб не дублювати код для обох квадратів)
+    function setupDropZone(zone) {
+        // Дозволяємо скидання
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            zone.style.background = "#e67e22"; // Підсвітка при наведенні
+        });
 
-        practiceSection.onmouseout = function(event) {
-            let target = event.target;
-            if (target.tagName === 'H3' || target.tagName === 'P') {
-                target.style.color = ""; // Повертаємо до початкового (з CSS)
-                target.style.transform = "";
+        // Повертаємо фон, якщо об'єкт винесли за межі зони
+        zone.addEventListener('dragleave', () => {
+            zone.style.background = "";
+        });
+
+        // Логіка самого скидання
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            zone.style.background = ""; // Скидаємо фон
+            
+            const id = e.dataTransfer.getData('text/plain');
+            const draggableElement = document.getElementById(id);
+            
+            // Якщо ми повертаємо в початкову зону, можемо додати текст назад
+            if (zone.id === 'zone-start') {
+                zone.append(draggableElement);
+            } else {
+                // Якщо в зону реставрації — очищуємо напис і кладемо картинку
+                zone.innerHTML = ''; 
+                zone.append(draggableElement);
+                alert("Експонат у залі реставрації!");
             }
-        };
+        });
     }
 
-    //  ЧАСТИНА 2: Drag-and-Drop (mousedown, mousemove, mouseup) 
-    const ball = document.getElementById('draggable-exhibit');
-    if (!ball) return;
+    if (dragItem && zoneStart && zoneEnd) {
+        // Налаштовуємо початковий стан картинки
+        dragItem.setAttribute('draggable', true);
 
-    ball.onmousedown = function(event) {
-        // Запобігаємо стандартному браузерному Drag&Drop
-        event.preventDefault();
+        dragItem.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', e.target.id);
+            dragItem.style.opacity = "0.5";
+        });
 
-        // Вираховуємо зсув курсора відносно лівого верхнього кута елемента
-        let shiftX = event.clientX - ball.getBoundingClientRect().left;
-        let shiftY = event.clientY - ball.getBoundingClientRect().top;
+        dragItem.addEventListener('dragend', () => {
+            dragItem.style.opacity = "1";
+        });
 
-        ball.style.position = 'fixed';
-        ball.style.zIndex = 1000;
-        document.body.append(ball);
-
-        moveAt(event.clientX, event.clientY);
-
-        function moveAt(pageX, pageY) {
-            ball.style.left = pageX - shiftX + 'px';
-            ball.style.top = pageY - shiftY + 'px';
-        }
-
-        function onMouseMove(event) {
-            moveAt(event.clientX, event.clientY);
-        }
-
-        // Слухаємо переміщення миші по всьому документу
-        document.addEventListener('mousemove', onMouseMove);
-
-        // Відпускаємо елемент
-        ball.onmouseup = function() {
-            document.removeEventListener('mousemove', onMouseMove);
-            ball.onmouseup = null;
-            
-            // Логіка перевірки: чи потрапили в цільову зону
-            const endZone = document.getElementById('zone-end');
-            const rect = endZone.getBoundingClientRect();
-            
-            if (event.clientX > rect.left && event.clientX < rect.right &&
-                event.clientY > rect.top && event.clientY < rect.bottom) {
-                
-                endZone.innerHTML = ""; // Очищаємо текст
-                endZone.append(ball);
-                ball.style.position = 'static';
-                alert("Експонат доставлено до реставрації!");
-            } else {
-                // Повертаємо на місце, якщо не влучили
-                document.getElementById('zone-start').append(ball);
-                ball.style.position = 'static';
-            }
-        };
-    };
-
-    ball.ondragstart = function() {
-        return false;
-    };
+        // Активуємо обидві зони для прийому об'єктів
+        setupDropZone(zoneStart);
+        setupDropZone(zoneEnd);
+    }
 });
